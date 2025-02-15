@@ -9,6 +9,7 @@
     <RootNamespace>YTSubConverter.UI.Win</RootNamespace>
     <AssemblyName>YTSubConverter</AssemblyName>
     <LangVersion>latest</LangVersion>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
