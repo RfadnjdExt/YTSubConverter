@@ -9,9 +9,10 @@ namespace YTSubConverter.Shared.Formats.Ttml
     {
         public static bool TryParse(string text, out Color color)
         {
+            color = default(Color); // Assign default value
+
             if (string.IsNullOrEmpty(text))
             {
-                color = Color.Empty;
                 return false;
             }
 
@@ -40,9 +41,10 @@ namespace YTSubConverter.Shared.Formats.Ttml
 
         private static bool TryParseHash(string text, out Color color)
         {
+            color = default(Color); // Assign default value
+
             if (text.Length != 1 + 6 && text.Length != 1 + 8)
             {
-                color = Color.Empty;
                 return false;
             }
 
@@ -70,7 +72,7 @@ namespace YTSubConverter.Shared.Formats.Ttml
 
         private static bool TryParseRgba(string text, out Color color)
         {
-            color = Color.Empty;
+            color = default(Color); // Assign default value
 
             Match match = Regex.Match(text, @"^(rgba?)\(\s*(?:(\d+)\s*,?\s*)+\)$");
             if (!match.Success)
@@ -86,6 +88,7 @@ namespace YTSubConverter.Shared.Formats.Ttml
             int g = int.Parse(match.Groups[2].Captures[1].Value);
             int b = int.Parse(match.Groups[2].Captures[2].Value);
             int a;
+
             if (match.Groups[1].Value == "rgba")
                 a = int.Parse(match.Groups[2].Captures[3].Value);
             else
