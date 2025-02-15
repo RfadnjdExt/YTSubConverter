@@ -25,7 +25,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
@@ -42,7 +42,7 @@ jobs:
       run: dotnet publish YTSubConverter.UI.Linux/YTSubConverter.UI.Linux.csproj --configuration Release --runtime ${{ matrix.runtime }} --self-contained false --output ./publish
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: YTSubConverter-${{ matrix.runtime }}
         path: ./publish
